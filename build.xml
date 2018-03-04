@@ -1,0 +1,63 @@
+<project default="run-tests">
+
+    <property name="dir.src.main" location="src/main"/>
+
+    <path id="classpath">
+        <fileset dir="lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <taskdef
+        name="junit"
+        classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask"
+        />
+
+    <target name="clean">
+        <delete dir="classes"/>
+        <delete dir="reports"/>
+    </target>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="classes"/>
+        <javac destdir="classes">
+            <classpath refid="classpath"/>
+            <src path="${dir.src.main}"/>
+            <src path="src/test"/>
+        </javac>
+    </target>
+
+    <target name="run-tests" depends="compile">
+        <mkdir dir="reports"/>
+        <junit printsummary="yes">
+            <classpath>
+                <path refid="classpath"/>
+                <pathelement location="classes"/>
+            </classpath>
+            <formatter type="xml"/>
+            <batchtest todir="reports">
+                <fileset dir="classes">
+                    <include name="*Test.class"/>
+                </fileset>
+            </batchtest>
+        </junit>
+        <delete dir="reports-html"/>
+        <junitreport todir="reports">
+            <fileset dir="reports">
+            	<include name="TEST-*.xml"/>
+            </fileset>
+        	<report format="frames" todir="reports-html"/>
+        </junitreport>
+        <exec executable="cmd.exe">
+        	<arg line="/C start reports-html"/>
+        </exec>
+    </target>
+
+    <target name="done">
+        <delete file="Solution.zip"/>
+        <zip basedir="." file="Solution.zip">
+            <include name="src/"/>
+        </zip>
+    </target>
+
+</project>
