@@ -12,7 +12,7 @@ Or implement Fibonnaci sequence. Recursively.  Seriously people, can we stop usi
 
 It's important to note that *I didn't create this project.* All credit goes to Ben Ragheb aka [@benzado](http://www.benzado.com/), who had a fantastic knack for identifying the best candidates. He also devised a terrific phone screen that focused on communication skills, not "writing code over the phone" or answering rote programming minutiae. He was key in assembling one of the most talented engineering teams I've had the pleasure of working alongside.
 
-# METHODOLOGY
+# Methodology
 
 How we administered this test:
 
@@ -28,6 +28,6 @@ If you want to see a similar coding test I developed for Scala, see [noahlz/tact
 
 I also wrote a blog post on my philosophy of coding tests. See: [Make them Prove they can Code - And Actually Do the Job](https://tech.novus.com/make-them-prove-they-can-code-and-actually-do-the-job/) (Novus Tech Blog)
 
-# LICENSE and USAGE
+# License and Usage
 
 I've chosen to license this under the Unlicense, but that could change at any time. The intention here is that it's a fun throwback / gag, and might be an hour or two of coding for someone learning Java. If you want port it to another language and let us know, that would be fun too.
